@@ -13,6 +13,7 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //creating all view objects
     Button reset, search;
     EditText searchkey;
     String key, url;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //initilisation of objects
         searchkey=(EditText)findViewById(R.id.search_key);
         search=(Button)findViewById(R.id.search);
         reset=(Button)findViewById(R.id.reset);
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //onClickListner for both the buttons
     @Override
     public void onClick(View view) {
         key=searchkey.getText().toString();
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (key.isEmpty()) {
                     Toast.makeText(this, "Enter key words to search", Toast.LENGTH_SHORT).show();
                 } else {
+                    //Url address string for the browser invluding google search
                     url = "https://www.google.co.in/search?q=" + key;
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     startActivity(intent);
